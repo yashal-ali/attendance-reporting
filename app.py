@@ -978,10 +978,9 @@ def main():
     # Sidebar
     st.sidebar.title("⚙️ System Configuration")
     
-    # ML Model loading section
-    st.sidebar.subheader("🤖 ML Model Settings")
-    ml_model_path = st.sidebar.text_input("ML Model Path", "attendance_model_fixed.joblib")
-    st.session_state.analytics_system.load_ml_model(ml_model_path)
+    # MChnages karni hai isme 
+    # st.sidebar.subheader("🤖 ML Model Settings")
+    # ml_model_path = st.sidebar.text_input("ML Model Path", "./attendance_model_fixed.joblib")
     # if st.sidebar.button("Load ML Model", type="primary", use_container_width=True):
     #     with st.spinner("Loading ML model..."):
     #         if st.session_state.analytics_system.load_ml_model(ml_model_path):
@@ -1020,12 +1019,20 @@ def main():
     status_col1, status_col2 = st.sidebar.columns(2)
     with status_col1:
         st.metric("Data Loaded", "✅" if st.session_state.analytics_system.processed_data is not None else "❌")
-    with status_col2:
-        st.metric("ML Model", "✅" if st.session_state.analytics_system.ml_model_loaded else "❌")
+    # with status_col2:
+    #     st.metric("ML Model", "✅" if st.session_state.analytics_system.ml_model_loaded else "❌")
     
     # Main tabs
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "🤖 ML Prediction", 
+    # tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    #     # "🤖 ML Prediction", 
+    #     "📊 Overview", 
+    #     "👤 Employee Analytics", 
+    #     "📈 Comparative", 
+    #     "📋 Data Explorer", 
+    #     "ℹ️ About"
+    # ])
+    tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        # "🤖 ML Prediction", 
         "📊 Overview", 
         "👤 Employee Analytics", 
         "📈 Comparative", 
@@ -1033,8 +1040,8 @@ def main():
         "ℹ️ About"
     ])
     
-    with tab1:
-        st.session_state.analytics_system.create_ml_prediction_interface()
+    # with tab1:
+    #     st.session_state.analytics_system.create_ml_prediction_interface()
     
     with tab2:
         if st.session_state.analytics_system.processed_data is not None:
@@ -1179,8 +1186,8 @@ def main():
         
         with col1:
             st.metric("Data Loaded", "✅ Yes" if st.session_state.analytics_system.processed_data is not None else "❌ No")
-        with col2:
-            st.metric("ML Model Ready", "✅ Yes" if st.session_state.analytics_system.ml_model_loaded else "❌ No")
+        # with col2:
+        #     st.metric("ML Model Ready", "✅ Yes" if st.session_state.analytics_system.ml_model_loaded else "❌ No")
         with col3:
             st.metric("System Version", "3.0.0")
 
